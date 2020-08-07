@@ -1,6 +1,11 @@
 #frontend
 node_modules/
+__pycache__/
 
 #backend tests
 htmlcov/
 .coverage
+
+#environments
+venv/
+

@@ -15,13 +15,12 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'eokl%gsnk5fjws@lo9cmicr4fc8h5r#1l24k04y@kuam@n2#bh'
-
+# os.environ['SECRET_KEY'] = 'eokl%gsnk5fjws@lo9cmicr4fc8h5r#1l24k04y@kuam@n2#bh'
+SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -40,9 +39,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'quizzes',
     'frontend', # enable the frontend app
-
-
-
 ]
 
 MIDDLEWARE = [
