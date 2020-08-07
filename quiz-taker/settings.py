@@ -113,9 +113,9 @@ django_heroku.settings(locals())
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'frontend', 'static', 'files')
+STATIC_ROOT = os.path.join(BASE_DIR, 'frontend', 'static', 'frontend')
 STATICFILES_DIR = []
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 #Allowing CORS Origin since LocalHost
 CORS_ORIGIN_ALLOW_ALL = True
