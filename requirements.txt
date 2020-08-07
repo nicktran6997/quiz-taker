@@ -50,7 +50,6 @@ entrypoints==0.3
 et-xmlfile==1.0.1
 fastcache==1.1.0
 flake8==3.7.9
-Flask==1.1.1
 fsspec==0.6.2
 future==0.18.2
 gevent==1.4.0
@@ -77,12 +76,6 @@ jmespath==0.9.5
 joblib==0.14.1
 json5==0.9.1
 jsonschema==3.2.0
-jupyter==1.0.0
-jupyter-client==5.3.4
-jupyter-console==6.1.0
-jupyter-core==4.6.1
-jupyterlab==1.2.6
-jupyterlab-server==1.0.6
 keyring==21.1.0
 kiwisolver==1.1.0
 lazy-object-proxy==1.4.3
@@ -218,7 +211,6 @@ tldextract==2.2.0
 toolz==0.10.0
 tornado==6.0.3
 traitlets==4.3.3
-twilio==6.37.0
 typed-ast==1.4.1
 ujson==1.35
 unicodecsv==0.14.1
