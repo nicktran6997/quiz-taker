@@ -119,7 +119,3 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 #Allowing CORS Origin since LocalHost
 CORS_ORIGIN_ALLOW_ALL = True
-
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
