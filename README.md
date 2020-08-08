@@ -1,9 +1,8 @@
 <h1>UDEMY QUIZ TAKER APPLICATION</h1>
 <h4>Technical Stack: </h4> React FrontEnd, Django Backend, SQL Database.
 
-The Main focus on this quiz-taker application is creating a single quiz, with a few questions, and each question has multiple choices with only one correcct answer.
-
 <h3>Intro</h3>
+The Main focus on this quiz-taker application is creating a single quiz, with a few questions, and each question has multiple choices with only one correct answer.
 For people who want to review this code, the 'root app' as well as the 'frontend' is in 'quiz-taker' while the backend handling is in 'quizzes'.
 
 <h4><a href='http://nick-quiz-taker.herokuapp.com'>LINK TO WEBAPP</a></h4>
@@ -30,7 +29,7 @@ Also one thing I left out that I think would be fun is custom messages depending
 On an architectural level, if I didnt have to create a backend per the instructions, I would simply make an app on the frontend and import the manual data I created myself as a JSON (reason is because majority of the logic is on the frontend and my implementation of the backend just creates the data for the frontend to import). However, if I had to make a more involved system which would have other models such as Users and History, then the current system I made with the backend would be of much more significant use.
 
 
-I think the most difficult part of the project was deployment as I had to transition from SQLite to Postgresql per heroku's limitations. Concurrently I had to deal with some file management issues as I originally had the package.json file within frontend but that proved to be a bigger hassle so I moved it into the root as well. I also couldn't get the project to run without debug=True currently but I think with a little more time I could fix that issue. To ammend these issues, I just need a bit more practice in deploying projects and using cloud services as a whole. 
+I think the most difficult part of the project was deployment as I had to transition from SQLite to Postgresql per heroku's limitations. Concurrently I had to deal with some file management issues as I originally had the package.json file within frontend but that proved to be a bigger hassle so I moved it into the root as well. I also couldn't get the project to run without debug=True currently but I think with a little more time I could fix that issue (might be able to soon as I get a handle of what to do with static files on heroku). To amend these issues, I'll crank out a bit more practice in deploying projects and using cloud services as a whole. 
 
 I wanted to make an implementation that would require frameworks and design patterns closer to real life large scaled projects, but I have to take into account development efficiency just so I can deploy in a timely manner which results in the compromises discussed in this README. I hope this was interesting for whoever reading this can see into my thought patterns and design choices.
 
