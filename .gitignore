@@ -9,3 +9,6 @@ htmlcov/
 #environments
 venv/
 
+#deprecated
+datadump.json
+db.sqlite3
