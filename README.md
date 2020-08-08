@@ -3,6 +3,9 @@ Technical Stack: React FrontEnd, Django Backend, SQL Database.
 
 The Main focus on this quiz-taker application is creating a single quiz, with a few questions, and each question has multiple choices with only one correcct answer.
 
+<h3>Intro</h3>
+For people who want to review this code, the 'root app' as well as the 'frontend' is in 'quiz-taker' while the backend handling is in 'quizzes'.
+
 <h4><a href='http://nick-quiz-taker.herokuapp.com'>LINK TO WEBAPP</a></h4>
 <h3>Architectural Choices</h3>
 For this mini-project I decided to have the backend handle most backend-related things such as managing the database and setting up the API for the frontend to hook into and grab the quizData from. Meanwhile the frontend can handle more of the bigger tasks such as giving the user feedback on their quiz and displaying the quiz in an intuitive way for the user to answer.
