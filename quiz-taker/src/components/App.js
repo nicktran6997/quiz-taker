@@ -2,22 +2,25 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import Question from './Question';
 import Result from './Result';
-import '../css/app.css';
+import styles from '../../static/css/app.css';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      data: [],
-      userAnswers: [],
-      loaded: false,
-      placeholder: "Loading",
-      showResults : false,
-    };
-    this.handleClick = this.handleClick.bind(this);
-    this.updateCorrect = this.updateCorrect.bind(this);
-    this.reset = this.reset.bind(this);
 
+    this.state = {
+      data: [], //quizdata grabbed from backend API
+      userAnswers: [],
+      started: false,
+      showResults: false,
+      loaded: false, //while the backend data is being loaded.
+      placeholder: 'loading',
+    };
+
+    //bind event handling functions
+    this.start = this.start.bind(this);
+    this.toggleResults = this.toggleResults.bind(this);
+    this.updateCorrect = this.updateCorrect.bind(this);
   }
 
   componentDidMount() {
@@ -32,17 +35,20 @@ class App extends Component {
       })
       .then(data => {
         const userAnswers = [].fill(null, 0, data.questions.length)
-        this.setState(() => {
-          return {
+        this.setState({
             data,
             loaded: true,
             userAnswers
-          };
-        });
+          }
+        );
       });
   }
 
-  handleClick() {
+  start() {
+    this.setState({started: true})
+  }
+
+  toggleResults() {
       this.setState(state => ({
           showResults : !state.showResults
       }));
@@ -50,21 +56,14 @@ class App extends Component {
 
   updateCorrect(index, answer) {
     this.setState(state => {
-      const newAnswers = state.userAnswers
-      newAnswers[index] = answer
+      state.userAnswers[index] = answer
       return {
-        userAnswers: newAnswers
+        userAnswers: state.userAnswers
       }
     })
   }
-  reset() {
-    this.setState(state => ({
-      showResults: false,
-    }))
-  }
 
   render() {
-    const isQuizDone = true;
     const checkNumCorrect = (prev, curr, index) => {
       const isMatch = (curr === this.state.data.questions[index].correctChoice);
       if (isMatch) {
@@ -72,30 +71,37 @@ class App extends Component {
       }
       return prev;                                                                                    
     }
-    return this.state.loaded ? (
-    <div className="quiz">
+
+    if (!this.state.loaded) {
+      return <p> {this.state.placeholder} </p>
+    } else if (!this.state.started) {
+      return <button onClick={this.start} className={styles.StartButton}>Start Quiz here</button>;
+    } 
+    return (
+      <div className={styles.Quiz}>
         <h1>{this.state.data.title}</h1>
-      <ol>
-        {this.state.data.questions.map((questionBlock, index) => {
-          return (
-            <li key={questionBlock.question}>
-                <Question question = {questionBlock.question} 
-                          choices = {questionBlock.choices} 
-                          answer = {questionBlock.correctChoice} 
-                          updateCorrect = {this.updateCorrect}
-                          index = {index}
-                          isDone = {this.state.showResults}/>
-            </li>
-          );
-        })}
-      </ol>
-      
-    {this.state.showResults ? <Result numCorrect = {this.state.userAnswers.reduce(checkNumCorrect, 0)} 
-                                      num = {this.state.data.questions.length}
-                                      resetFunc = {this.reset}/> 
-                            : <button onClick={this.handleClick}>Submit</button>}
-    </div>
-    ) : <p> {this.state.placeholder}</p>;
+        <ol>
+          {this.state.data.questions.map((questionBlock, index) => 
+            (
+              <li key={questionBlock.question} className={styles.Question}>
+                  <Question question      = {questionBlock.question} 
+                            choices       = {questionBlock.choices} 
+                            answer        = {questionBlock.correctChoice} 
+                            updateCorrect = {this.updateCorrect}
+                            index         = {index}
+                            isDone        = {this.state.showResults}/>
+              </li>
+            )
+          )}
+        </ol>
+        <div className={styles.Results}>
+          <Result numCorrect       = {this.state.userAnswers.reduce(checkNumCorrect, 0)} 
+                  num              = {this.state.data.questions.length} 
+                  toggleResults    = {this.toggleResults}
+                  showResults      = {this.state.showResults}/>
+        </div>
+      </div>
+    );
   }
 }
 

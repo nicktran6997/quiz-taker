@@ -1,0 +1,9 @@
+.ResultsButton {
+    height: auto;
+    width: 10em;
+    font-size: 16px;
+    text-align: center;
+    padding: 15px 32px;
+    color: green;
+    border-radius: 12px;
+}

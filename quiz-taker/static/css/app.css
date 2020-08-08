@@ -1,0 +1,40 @@
+html {
+    background-color: #20bf55;
+    background-image: linear-gradient(315deg, #20bf55 0%, #01baef 74%);
+    margin: auto auto;
+    font-size: 18px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.Question {
+    border: 1px double white;
+    border-radius: 10px;
+    margin: 5px 15%;
+}
+
+.QuestionBlock {
+    margin: auto 5px;
+    padding: 5px;
+}
+
+.StartButton {
+    position: absolute;
+    top: 45%;
+    left: 40%;
+    height: auto;
+    width: 10em;
+    font-size: 40px;
+    text-align: center;
+    padding: 15px 32px;
+    color: green;
+    border-radius: 12px;
+}
+
+.Quiz {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.Results {
+    margin: auto 25%;
+}

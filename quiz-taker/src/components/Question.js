@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
+import styles from '../../static/css/app.css';
 
-// {props.choices.forEach(choice => (<li>{choice}</li>))}
-const quizStyle = {border: "1px solid white", borderRadius: "10px"}
+// const quizStyle = {border: "1px solid white", borderRadius: "10px"}
 const highlightCorrect = {backgroundColor: "#fff2ac", backgroundImage: "linear-gradient(to right, #ffe359 0%, #fff2ac 100%)"}
+
 function Option(props) {
     const currStyle = (props.isDone && props.index === props.answer) ? highlightCorrect : {}
     return (
-    <li key={props.question}>
-        <input type="radio" value={props.index} id={props.choice} name={props.question} disabled = {props.isDone}/>
+    <li>
+        <input type="radio" value={props.index} id={props.index + "." + props.choice} name={props.question} disabled = {props.isDone}/>
         <label htmlFor={props.choice} style={currStyle}>
             {props.choice}
         </label>
@@ -27,15 +28,16 @@ class Question extends Component {
 
     render() {
         return (
-            <div style={quizStyle}>
-                <h3>{this.props.question}</h3>
-                <ul className="choices" style={{listStyleType:"none"}} onChange={this.onChangeValue}>
+            <div className={styles.QuestionBlock}>
+                <p>{this.props.question}</p>
+                <ul className={styles.Choice} style={{listStyleType:"none"}} onChange={this.onChangeValue}>
                     {this.props.choices.map((choice, i) => {
-                        return <Option choice={choice} 
-                                        question={this.props.question} 
-                                        index = {i} 
-                                        answer = {this.props.answer} 
-                                        isDone = {this.props.isDone}/>
+                        return <Option choice       = {choice} 
+                                        question    = {this.props.question} 
+                                        index       = {i} 
+                                        key         = {i + "." + choice}
+                                        answer      = {this.props.answer} 
+                                        isDone      = {this.props.isDone}/>
                     })}
                 </ul>
             </div>)
@@ -43,23 +45,3 @@ class Question extends Component {
 }
 
 export default Question;
-
-// function updateAnswer(updateCorrect, index,event) {
-//     updateCorrect()
-// }
-// function Question(props) {
-    
-//     return (
-//     <div style={quizStyle}>
-//         <h3>{props.question}</h3>
-//         <ul className="choices" style={{listStyleType:"none"}} onChange={props.updateCorrect(props.index, parseInt(event.target.value))}>
-//             {props.choices.map((choice, i) => {
-//                 return <Option choice={choice} 
-//                 question={props.question} 
-//                 index = {i} answer = {props.answer} 
-//                 isDone = {props.isDone}/>
-//             })}
-//         </ul>
-//     </div>)
-// }
-

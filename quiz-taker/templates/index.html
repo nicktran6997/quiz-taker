@@ -4,12 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Django REST with React</title>
+  {% load static %}
+  <link type="text/css" href="{% static "css/app.css" %}" type="stylesheet">
+
 </head>
 <body>
 <div id="app">
     <!-- React will load here -->
 </div>
 </body>
-{% load static %}
-<script src="{% static "./main.js" %}"></script>
+<script src="{% static "frontend/main.js" %}"></script>
 </html>
