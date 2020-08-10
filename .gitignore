@@ -5,6 +5,7 @@ __pycache__/
 #backend tests
 htmlcov/
 .coverage
+staticfiles/
 
 #environments
 venv/
