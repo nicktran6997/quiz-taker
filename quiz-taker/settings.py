@@ -11,6 +11,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+DEBUG_PROPAGATE_EXCEPTIONS = True #for debugging white noise static files issue
 
 # ALLOWED_HOSTS = ["nick-quiz-taker.herokuapp.com/", "localhost:8000", "127.0.0.1:8000"]
 ALLOWED_HOSTS = []
