@@ -117,7 +117,7 @@ django_heroku.settings(locals())
 STATIC_URL = '/static/'
 STATIC_ROOT = 'staticfiles'
 STATICFILES_DIR = []
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 #Allowing CORS Origin since LocalHost
 CORS_ORIGIN_ALLOW_ALL = True
